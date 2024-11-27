@@ -30,8 +30,8 @@ body, html {
     overflow: hidden;
     background: repeating-linear-gradient(
       -45deg,
-      #007bff,
-      #007bff 10px,
+      #ccc,
+      #ccc 10px,
       #f7f7f7 10px,
       #f7f7f7 20px
     );
