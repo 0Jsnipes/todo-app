@@ -1,0 +1,97 @@
+/* General Reset */
+body, html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+    background: #f7f7f7;
+    overflow: hidden;
+  }
+  
+  /* Zigzag Background */
+  @keyframes move-zigzag {
+    0% {
+      background-position: 0 0;
+    }
+    100% {
+      background-position: 100px 0;
+    }
+  }
+  
+  .app-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    height: 100vh;
+    overflow: hidden;
+    background: repeating-linear-gradient(
+      -45deg,
+      #ccc,
+      #ccc 10px,
+      #f7f7f7 10px,
+      #f7f7f7 20px
+    );
+    animation: move-zigzag 5s linear infinite;
+  }
+  
+  /* "Get Started Here" Text */
+  .get-started {
+    position: absolute;
+    text-align: center;
+    font-size: 2rem;
+    color: #333;
+    top: 40%;
+    transform: translateY(-60%);
+    animation: fade-in 1.5s ease-in-out;
+  }
+  
+  .get-started .arrow {
+    font-size: 3rem;
+    margin-top: 15px;
+  }
+  
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  /* List Container */
+  .list-container {
+    background: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ddd;
+    padding: 16px;
+    border-radius: 8px;
+    width: 300px;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    cursor: grab;
+  }
+  
+  .list-container:active {
+    cursor: grabbing;
+  }
+  
+  button {
+    cursor: pointer;
+  }
+  
+  button:hover {
+    opacity: 0.9;
+  }
+  .todo-item:hover {
+    background-color: #f0f0f0;
+    border-radius: 4px;
+  }
+  
+  
