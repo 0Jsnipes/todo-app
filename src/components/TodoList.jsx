@@ -6,26 +6,11 @@ const TodoList = ({ list, setLists, removeList }) => {
   const [name, setName] = useState(list.name);
   const listRef = useRef();
 
-  const handleDrag = (e) => {
-    if (e.target.tagName === "BUTTON" || e.target.tagName === "INPUT") return;
-
-    const updatedLists = setLists((prevLists) =>
-      prevLists.map((l) =>
-        l.id === list.id
-          ? {
-              ...l,
-              position: {
-                x: e.clientX - listRef.current.offsetWidth / 2,
-                y: e.clientY - listRef.current.offsetHeight / 2,
-              },
-            }
-          : l
-      )
-    );
-  };
-
   const startDrag = (e) => {
-    if (e.target.tagName === "BUTTON" || e.target.tagName === "INPUT") return;
+    if (e.target.tagName === "BUTTON" || e.target.tagName === "INPUT" || e.target.tagName === "SPAN") {
+      e.stopPropagation(); // Prevent dragging when interacting with buttons or inputs
+      return;
+    }
 
     listRef.current.style.position = "absolute";
     listRef.current.style.zIndex = 1000;

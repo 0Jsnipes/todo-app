@@ -1,7 +1,8 @@
 import React from "react";
 
 const TodoItem = ({ todo, listId, setLists }) => {
-  const toggleTodo = () => {
+  const toggleTodo = (e) => {
+    e.stopPropagation(); // Prevent triggering the drag event
     setLists((prevLists) =>
       prevLists.map((list) =>
         list.id === listId
@@ -32,7 +33,7 @@ const TodoItem = ({ todo, listId, setLists }) => {
         type="checkbox"
         checked={todo.completed}
         onChange={toggleTodo}
-        style={{ pointerEvents: "none" }} // Prevent click conflicts between checkbox and parent
+        style={{ pointerEvents: "none" }} // Prevent checkbox from conflicting with parent
       />
       <span>{todo.text}</span>
     </div>
